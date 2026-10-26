@@ -8,8 +8,8 @@ import { LinksView } from "./LinksView";
 import { NoteEditor } from "./NoteEditor";
 import { NotesHome } from "./NotesHome";
 
-export function NotaApp() {
-  const [view, setView] = useState<AppView>({ name: "notes" });
+export function NotaApp({ start }: { start?: AppView } = {}) {
+  const [view, setView] = useState<AppView>(start ?? { name: "notes" });
 
   useEffect(() => {
     setView(readView());
