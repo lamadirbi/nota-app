@@ -2,6 +2,8 @@
 
 تطبيق ملاحظات أصفر سريع وسهل الاستخدام، مع قسم مصاريف وأزرار روابط سريعة. مبني بـ Next.js ويعمل كتطبيق يمكن تثبيته على الهاتف.
 
+المستودع: [github.com/lamadirbi/nota-app](https://github.com/lamadirbi/nota-app)
+
 ## المميزات
 
 - ملاحظات ملونة مثل دفتر الهاتف
@@ -13,29 +15,22 @@
 ## التشغيل محلياً
 
 ```bash
+cd nota
 npm install
 npm run dev
 ```
 
 ثم افتح [http://localhost:3000](http://localhost:3000)
 
-## الرفع على GitHub ثم Vercel
+## الرفع على Vercel
 
-```bash
-git init
-git add .
-git commit -m "Add Nota notes and expenses app"
-gh repo create nota --public --source=. --remote=origin --push
-```
+افتح هذا الرابط واستورد المستودع:
 
-بعدها من [vercel.com](https://vercel.com):
+[vercel.com/new/import](https://vercel.com/new/import?s=https://github.com/lamadirbi/nota-app)
 
-1. Import the GitHub repository
-2. Framework: Next.js
-3. Deploy
+1. اربط حساب GitHub
+2. اختر مستودع `nota-app`
+3. Framework: Next.js
+4. اضغط Deploy
 
-أو من الطرفية بعد تثبيت Vercel CLI:
-
-```bash
-npx vercel
-```
+بعد الرفع، من الهاتف: افتح الموقع ثم **إضافة إلى الشاشة الرئيسية** لتثبيته كتطبيق.
