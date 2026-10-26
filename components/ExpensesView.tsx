@@ -86,27 +86,27 @@ export function ExpensesView() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="pressable grid h-11 w-11 place-items-center rounded-2xl bg-[#FF8A3D] text-white shadow-[var(--shadow)]"
+          className="pressable grid h-10 w-10 place-items-center rounded-2xl bg-[#FF8A3D] text-white shadow-[var(--shadow)] min-[400px]:h-11 min-[400px]:w-11"
           aria-label="مصروف جديد"
         >
           <PlusIcon className="h-6 w-6" />
         </button>
       }
     >
-      <div className="mb-4 rounded-[28px] bg-[#3d2b1f] p-5 text-white shadow-[var(--shadow)]">
-        <p className="text-sm text-white/70">مجموع هذا الشهر</p>
-        <p className="mt-1 text-4xl font-black">{formatMoney(monthTotal, currency)}</p>
-        <p className="mt-3 text-sm text-[#FFE27A]">اليوم: {formatMoney(todayTotal, currency)}</p>
+      <div className="mb-3 rounded-[22px] bg-[#3d2b1f] p-4 text-white shadow-[var(--shadow)] min-[400px]:mb-4 min-[400px]:rounded-[28px] min-[400px]:p-5">
+        <p className="text-xs text-white/70 min-[400px]:text-sm">مجموع هذا الشهر</p>
+        <p className="mt-1 break-words text-2xl font-black min-[400px]:text-4xl">{formatMoney(monthTotal, currency)}</p>
+        <p className="mt-2 text-sm text-[#FFE27A]">اليوم: {formatMoney(todayTotal, currency)}</p>
       </div>
 
-      <div className="mb-4 flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+      <div className="mb-3 flex gap-2 overflow-x-auto pb-1 no-scrollbar min-[400px]:mb-4">
         {CATEGORY_KEYS.map((key) => {
           const meta = CATEGORIES[key];
           const total = monthExpenses
             .filter((item) => item.category === key)
             .reduce((sum, item) => sum + item.amount, 0);
           return (
-            <div key={key} className="min-w-[108px] rounded-2xl bg-white/80 p-3 shadow-[var(--shadow)]">
+            <div key={key} className="min-w-[92px] rounded-2xl bg-white/80 p-2.5 shadow-[var(--shadow)] min-[400px]:min-w-[108px] min-[400px]:p-3">
               <p className="text-lg">{meta.emoji}</p>
               <p className="text-sm font-bold">{meta.label}</p>
               <p className="text-xs text-[var(--muted)]">{formatMoney(total, currency)}</p>
@@ -116,7 +116,7 @@ export function ExpensesView() {
       </div>
 
       {grouped.length === 0 ? (
-        <div className="rounded-[28px] bg-white/80 p-8 text-center shadow-[var(--shadow)]">
+        <div className="rounded-[24px] bg-white/80 p-6 text-center shadow-[var(--shadow)] min-[400px]:rounded-[28px] min-[400px]:p-8">
           <div className="mb-3 text-5xl">💰</div>
           <h2 className="text-xl font-black">ما في مصاريف بعد</h2>
           <p className="mt-2 text-[var(--muted)]">أضف أول مصروف بثواني من الزر البرتقالي.</p>
@@ -130,18 +130,18 @@ export function ExpensesView() {
                 {items.map((item) => {
                   const meta = CATEGORIES[item.category];
                   return (
-                    <div key={item.id} className="flex items-center gap-3 rounded-3xl bg-white/85 p-3 shadow-[var(--shadow)]">
+                    <div key={item.id} className="flex items-center gap-2 rounded-2xl bg-white/85 p-2.5 shadow-[var(--shadow)] min-[400px]:gap-3 min-[400px]:rounded-3xl min-[400px]:p-3">
                       <div
-                        className="grid h-12 w-12 place-items-center rounded-2xl text-xl"
+                        className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl text-lg min-[400px]:h-12 min-[400px]:w-12 min-[400px]:text-xl"
                         style={{ background: `${meta.color}33` }}
                       >
                         {meta.emoji}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="truncate font-black">{item.title}</p>
-                        <p className="text-sm text-[var(--muted)]">{meta.label}</p>
+                        <p className="truncate text-sm font-black min-[400px]:text-base">{item.title}</p>
+                        <p className="text-xs text-[var(--muted)] min-[400px]:text-sm">{meta.label}</p>
                       </div>
-                      <p className="font-black">{formatMoney(item.amount, currency)}</p>
+                      <p className="shrink-0 text-sm font-black min-[400px]:text-base">{formatMoney(item.amount, currency)}</p>
                       <button
                         type="button"
                         onClick={() => remove(item.id)}
@@ -160,9 +160,9 @@ export function ExpensesView() {
       )}
 
       {open ? (
-        <div className="fixed inset-0 z-50 grid place-items-end bg-black/30 p-4" onClick={() => setOpen(false)}>
+        <div className="fixed inset-0 z-50 grid place-items-end bg-black/30 p-3 min-[400px]:p-4" onClick={() => setOpen(false)}>
           <form
-            className="w-full max-w-lg rounded-[28px] bg-[var(--card)] p-5"
+            className="sheet w-full max-w-lg rounded-[24px] bg-[var(--card)] p-4 min-[400px]:rounded-[28px] min-[400px]:p-5"
             onClick={(event) => event.stopPropagation()}
             onSubmit={(event) => {
               event.preventDefault();

@@ -1,5 +1,5 @@
-import { LinksView } from "@/components/LinksView";
+import { NotaApp } from "@/components/NotaApp";
 
 export default function LinksPage() {
-  return <LinksView />;
+  return <NotaApp />;
 }

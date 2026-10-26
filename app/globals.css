@@ -7,11 +7,10 @@
   --card: #fffdf4;
   --yellow: #ffd54f;
   --orange: #ff8a3d;
-  --shadow: 0 10px 30px rgba(255, 170, 40, 0.22);
+  --shadow: 0 8px 22px rgba(255, 170, 40, 0.2);
 }
 
 @theme inline {
-  --font-sans: var(--font-cairo);
   --color-bg: var(--bg);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
@@ -21,19 +20,22 @@
 }
 
 * {
+  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
 
 html,
 body {
   min-height: 100%;
+  min-height: 100dvh;
   background: var(--bg);
   color: var(--ink);
+  overflow-x: hidden;
 }
 
 body {
-  font-family: var(--font-cairo), "Segoe UI", Tahoma, sans-serif;
-  overflow-x: hidden;
+  font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", "Geeza Pro", sans-serif;
+  touch-action: manipulation;
 }
 
 button,
@@ -41,12 +43,18 @@ input,
 textarea,
 select {
   font: inherit;
+  max-width: 100%;
 }
 
 input,
 textarea,
 select {
   font-size: 16px;
+}
+
+img,
+svg {
+  max-width: 100%;
 }
 
 .blob {
@@ -73,7 +81,13 @@ select {
 }
 
 .safe-bottom {
-  padding-bottom: calc(92px + env(safe-area-inset-bottom));
+  padding-bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+}
+
+.sheet {
+  max-height: min(88dvh, 640px);
+  overflow-y: auto;
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -83,4 +97,10 @@ select {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@media (min-width: 400px) {
+  .safe-bottom {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+  }
 }

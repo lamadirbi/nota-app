@@ -56,7 +56,7 @@ export function LinksView() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="pressable grid h-11 w-11 place-items-center rounded-2xl bg-[#FF8A3D] text-white shadow-[var(--shadow)]"
+          className="pressable grid h-10 w-10 place-items-center rounded-2xl bg-[#FF8A3D] text-white shadow-[var(--shadow)] min-[400px]:h-11 min-[400px]:w-11"
           aria-label="زر جديد"
         >
           <PlusIcon className="h-6 w-6" />
@@ -64,24 +64,24 @@ export function LinksView() {
       }
     >
       {links.length === 0 ? (
-        <div className="rounded-[28px] bg-white/80 p-8 text-center shadow-[var(--shadow)]">
+        <div className="rounded-[24px] bg-white/80 p-6 text-center shadow-[var(--shadow)] min-[400px]:rounded-[28px] min-[400px]:p-8">
           <div className="mb-3 text-5xl">🔗</div>
           <h2 className="text-xl font-black">ما في أزرار بعد</h2>
           <p className="mt-2 text-[var(--muted)]">أضف اسم ورابط، وبعدها ضغطة واحدة تفتح الموقع.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-2 min-[400px]:gap-3">
           {links.map((link) => (
             <div key={link.id} className="relative">
               <a
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pressable flex min-h-[132px] flex-col items-center justify-center rounded-[28px] p-4 text-center font-black text-[#3d2b1f] shadow-[var(--shadow)]"
+                className="pressable flex min-h-[112px] flex-col items-center justify-center rounded-[22px] p-3 text-center font-black text-[#3d2b1f] shadow-[var(--shadow)] min-[400px]:min-h-[132px] min-[400px]:rounded-[28px] min-[400px]:p-4"
                 style={{ background: link.color }}
               >
                 <span className="text-3xl">{link.emoji}</span>
-                <span className="mt-2 line-clamp-2 text-lg">{link.title}</span>
+                <span className="mt-1 line-clamp-2 text-sm min-[400px]:mt-2 min-[400px]:text-lg">{link.title}</span>
               </a>
               <button
                 type="button"
@@ -97,9 +97,9 @@ export function LinksView() {
       )}
 
       {open ? (
-        <div className="fixed inset-0 z-50 grid place-items-end bg-black/30 p-4" onClick={() => setOpen(false)}>
+        <div className="fixed inset-0 z-50 grid place-items-end bg-black/30 p-3 min-[400px]:p-4" onClick={() => setOpen(false)}>
           <form
-            className="w-full max-w-lg rounded-[28px] bg-[var(--card)] p-5"
+            className="sheet w-full max-w-lg rounded-[24px] bg-[var(--card)] p-4 min-[400px]:rounded-[28px] min-[400px]:p-5"
             onClick={(event) => event.stopPropagation()}
             onSubmit={(event) => {
               event.preventDefault();

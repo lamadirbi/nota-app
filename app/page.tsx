@@ -1,5 +1,5 @@
-import { NotesHome } from "@/components/NotesHome";
+import { NotaApp } from "@/components/NotaApp";
 
 export default function HomePage() {
-  return <NotesHome />;
+  return <NotaApp />;
 }

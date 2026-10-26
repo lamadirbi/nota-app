@@ -1,5 +1,5 @@
-import { ExpensesView } from "@/components/ExpensesView";
+import { NotaApp } from "@/components/NotaApp";
 
 export default function ExpensesPage() {
-  return <ExpensesView />;
+  return <NotaApp />;
 }

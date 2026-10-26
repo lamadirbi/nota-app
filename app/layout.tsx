@@ -1,12 +1,6 @@
 import { ServiceWorker } from "@/components/ServiceWorker";
 import type { Metadata, Viewport } from "next";
-import { Cairo } from "next/font/google";
 import "./globals.css";
-
-const cairo = Cairo({
-  subsets: ["arabic", "latin"],
-  variable: "--font-cairo",
-});
 
 export const metadata: Metadata = {
   title: "نوتة",
@@ -38,8 +32,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ar" dir="rtl" className={`${cairo.variable} h-full antialiased`}>
-      <body className="min-h-full bg-[var(--bg)] font-sans text-[var(--ink)]">
+    <html lang="ar" dir="rtl" className="h-full antialiased">
+      <body className="min-h-full bg-[var(--bg)] text-[var(--ink)]">
         <ServiceWorker />
         {children}
       </body>

@@ -53,12 +53,12 @@ export function InstallPrompt() {
   }
 
   return (
-    <div className="fixed inset-x-0 bottom-[5.6rem] z-40 mx-auto max-w-lg px-5">
-      <div className="flex items-start gap-3 rounded-3xl bg-white/95 p-4 shadow-[var(--shadow)] ring-2 ring-yellow-200">
-        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#FFE27A] text-2xl">📲</div>
+    <div className="fixed inset-x-0 bottom-[4.5rem] z-40 mx-auto max-w-lg px-3 min-[400px]:bottom-[5.6rem] min-[400px]:px-5">
+      <div className="flex items-start gap-2 rounded-2xl bg-white/95 p-3 shadow-[var(--shadow)] ring-2 ring-yellow-200 min-[400px]:gap-3 min-[400px]:rounded-3xl min-[400px]:p-4">
+        <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-[#FFE27A] text-xl min-[400px]:h-12 min-[400px]:w-12 min-[400px]:text-2xl">📲</div>
         <div className="min-w-0 flex-1">
-          <p className="font-black">ثبّت نوتة على هاتفك</p>
-          <p className="text-sm text-[var(--muted)]">
+          <p className="text-sm font-black min-[400px]:text-base">ثبّت نوتة على هاتفك</p>
+          <p className="text-xs text-[var(--muted)] min-[400px]:text-sm">
             {ios
               ? "من المشاركة ثم إضافة إلى الشاشة الرئيسية."
               : "اضغط تثبيت ليصير التطبيق مثل تطبيقات الهاتف."}
