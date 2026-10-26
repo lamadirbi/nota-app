@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fff4c8;
+  --ink: #3d2b1f;
+  --muted: #8a6a3f;
+  --card: #fffdf4;
+  --yellow: #ffd54f;
+  --orange: #ff8a3d;
+  --shadow: 0 10px 30px rgba(255, 170, 40, 0.22);
+}
+
+@theme inline {
+  --font-sans: var(--font-cairo);
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-yellow: var(--yellow);
+  --color-orange: var(--orange);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-cairo), "Segoe UI", Tahoma, sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.note-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.note-card:active {
+  transform: scale(0.98);
+}
+
+.pressable {
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.pressable:active {
+  transform: scale(0.96);
+}
+
+.safe-bottom {
+  padding-bottom: calc(92px + env(safe-area-inset-bottom));
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
